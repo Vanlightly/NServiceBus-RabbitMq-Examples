@@ -17,7 +17,7 @@ namespace Rabbit.CustomRouting.GoldInsiderClientServices.EventHandlers
 
         public Task Handle(OrderCancelled message, IMessageHandlerContext context)
         {
-            logger.Info($"Received OrderCancelled, OrderId = {message.OrderId} - reembursing credit card");
+            logger.Info($"Received Gold Insider OrderCancelled, OrderId = {message.OrderId} - doing some client services stuff for this very important client");
             return Task.CompletedTask;
         }
     }

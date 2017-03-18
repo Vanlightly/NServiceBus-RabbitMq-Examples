@@ -17,14 +17,8 @@ namespace Rabbit.CustomRouting.GoldInsiderClientServices.EventHandlers
 
         public Task Handle(OrderPlaced message, IMessageHandlerContext context)
         {
-            logger.Info($"Received OrderPlaced, OrderId = {message.OrderId} - charging credit card");
-
-
-            var orderBilled = new OrderBilled
-            {
-                OrderId = message.OrderId
-            };
-            return context.Publish(orderBilled);
+            logger.Info($"Received Gold Insider OrderPlaced, OrderId = {message.OrderId} - doing some client services stuff for this very important client");
+            return Task.CompletedTask;
         }
     }
 }
