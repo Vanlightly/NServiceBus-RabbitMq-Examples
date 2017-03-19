@@ -49,12 +49,12 @@ namespace Rabbit.CustomRouting.ClientUI
         {
             while (true)
             {
-                log.Info("Press '1' to place an order by a Gold Insider client");
-                log.Info("Press '2' to place an order by a Gold Standard client");
-                log.Info("Press '3' to place an order by a Silver client");
-                log.Info("Press '4' to cancel an order by a Gold Insider client");
-                log.Info("Press '5' to cancel an order by a Gold Standard client");
-                log.Info("Press '6' to cancel an order by a Silver client");
+                log.Info("Press 'Numpad 1' to place an order by a Gold Insider client");
+                log.Info("Press 'Numpad 2' to place an order by a Gold Standard client");
+                log.Info("Press 'Numpad 3' to place an order by a Silver client");
+                log.Info("Press 'Numpad 4' to cancel an order by a Gold Insider client");
+                log.Info("Press 'Numpad 5' to cancel an order by a Gold Standard client");
+                log.Info("Press 'Numpad 6' to cancel an order by a Silver client");
                 log.Info("Press 'Q' to quit.");
                 var key = Console.ReadKey();
                 Console.WriteLine();

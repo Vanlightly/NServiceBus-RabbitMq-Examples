@@ -53,19 +53,13 @@ namespace Rabbit.ClientUI
         {
             while (true)
             {
-                log.Info("Press '1' to place an order by a Gold Insider client");
-                log.Info("Press '2' to place an order by a Gold Standard client");
-                log.Info("Press '3' to place an order by a Silver client");
-                log.Info("Press '4' to cancel an order by a Gold Insider client");
-                log.Info("Press '5' to cancel an order by a Gold Standard client");
-                log.Info("Press '6' to cancel an order by a Silver client");
-                log.Info("Press 'Q' to quit.");
+                log.Info("Press 'P' to place an order, 'C' to cancel an order, 'Q' to quit.");
                 var key = Console.ReadKey();
                 Console.WriteLine();
 
                 switch (key.Key)
                 {
-                    case ConsoleKey.NumPad1:
+                    case ConsoleKey.P:
                         // Instantiate the command
                         var command = new PlaceOrder
                         {
@@ -74,28 +68,7 @@ namespace Rabbit.ClientUI
 
                         // Send the command to the local endpoint
                         log.Info($"Sending PlaceOrder command, OrderId = {command.OrderId}");
-
-                        var sendOptions = new SendOptions();
-                        sendOptions.SetHeader("insider", "1");
-                        sendOptions.SetHeader("membership", "gold");
-                        await endpointInstance.Send(command, sendOptions).ConfigureAwait(false);
-
-                        break;
-
-                    case ConsoleKey.NumPad2:
-                        // Instantiate the command
-                        var command2 = new PlaceOrder
-                        {
-                            OrderId = Guid.NewGuid().ToString()
-                        };
-
-                        // Send the command to the local endpoint
-                        log.Info($"Sending PlaceOrder command, OrderId = {command2.OrderId}");
-
-                        var sendOptions2 = new SendOptions();
-                        sendOptions2.SetHeader("insider", "0");
-                        sendOptions2.SetHeader("membership", "gold");
-                        await endpointInstance.Send(command2, sendOptions2).ConfigureAwait(false);
+                        await endpointInstance.Send(command).ConfigureAwait(false);
 
                         break;
 
